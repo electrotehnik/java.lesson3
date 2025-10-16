@@ -1,8 +1,10 @@
 // Создание собственного исключения
 
-public class MyArrayDataException extends NumberFormatException {
-    public MyArrayDataException(String message) {
-        super(message);
-        System.out.println("В массиве обнаружился не верный тип данных");
+public class MyArrayDataException extends RuntimeException {
+    int row, column;
+    public MyArrayDataException(String message, int row, int column) {
+        super(message + "[" + row + ", " + column + "]");
+        this.row = row;
+        this.column = column;
     }
 }
